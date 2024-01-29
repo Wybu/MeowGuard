@@ -32,7 +32,7 @@ all_sprites.add(P1)
 all_sprites.add(H1)
 all_sprites.add(H2)
 
-
+#Main menu
 def main_menu_phase():
     scoreboard.reset_current_score()
 
@@ -51,6 +51,7 @@ def main_menu_phase():
     GlobalState.PRESS_Y = update_press_key(GlobalState.PRESS_Y)
     VisualizationService.draw_main_menu(GlobalState.SCREEN, scoreboard.get_max_score(), GlobalState.PRESS_Y)
 
+#Game play
 def gameplay_phase():
     events = pygame.event.get()
 

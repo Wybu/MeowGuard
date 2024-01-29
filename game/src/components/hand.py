@@ -58,7 +58,7 @@ class Hand(pygame.sprite.Sprite):
         self.new_y = -40
 
     def move(self, scoreboard: Scoreboard, player_position):
-        self.new_x = sine(100.0, 620, 20.0, self.offset_x)
+        self.new_x = sine(100.0, 620, 22.0, self.offset_x)
         self.new_y += self.new_spd
         self.rect.center = (self.new_x, self.new_y)
 

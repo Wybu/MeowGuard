@@ -6,5 +6,5 @@ class Config:
     HEIGHT = 640
 
     # Movement
-    ACC = 1.5
-    FRIC = -0.10
+    ACC = 1.6
+    FRIC = -0.08

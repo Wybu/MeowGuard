@@ -12,12 +12,15 @@ class Scoreboard:
     def reset_current_score(self):
         self._current_score = 0
 
+
     def increase_current_score(self):
         self._current_score += 1
 
     def get_max_score(self):
         return self._max_score
 
+    def check_score_change(self):
+        return
     def get_current_score(self):
         return self._current_score
 

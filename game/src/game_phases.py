@@ -63,6 +63,8 @@ def gameplay_phase():
     P1.update()
     H1.move(scoreboard, P1.player_position)
     H2.move(scoreboard, P1.player_position)
+    H1.move(scoreboard, P1.player_position)
+    H2.move(scoreboard, P1.player_position)
 
     GlobalState.SCROLL = update_background_using_scroll(GlobalState.SCROLL)
     VisualizationService.draw_background_with_scroll(GlobalState.SCREEN, GlobalState.SCROLL)
@@ -78,6 +80,7 @@ def gameplay_phase():
         time.sleep(0.5)
         game_over()
 
+# def gameplay_pause():
 
 def exit_game_phase():
     pygame.quit()

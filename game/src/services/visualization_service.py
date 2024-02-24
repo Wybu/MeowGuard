@@ -16,7 +16,11 @@ class VisualizationService:
 
     @staticmethod
     def get_player_image():
-        return pygame.image.load(ASSETS_DIR / "gift.png").convert_alpha()
+        return pygame.image.load(ASSETS_DIR / "char2.png").convert_alpha()
+
+    @staticmethod
+    def get_title2_img():
+        return pygame.image.load(MENU_DIR / "title2.png").convert_alpha()
 
     @staticmethod
     def get_dotted_line():
@@ -26,6 +30,9 @@ class VisualizationService:
     def get_background_image():
         return pygame.image.load(ASSETS_DIR / "bg.png").convert_alpha()
 
+    @staticmethod
+    def get_background_image2():
+        return pygame.image.load(ASSETS_DIR / "bg2.png").convert_alpha()
     @staticmethod
     def get_santa_hand():
         return pygame.image.load(ASSETS_DIR / "santa_hand.png").convert_alpha()
@@ -44,7 +51,7 @@ class VisualizationService:
 
     @staticmethod
     def get_holding_gift_image():
-        return pygame.image.load(MENU_DIR / "holding_gift.png").convert_alpha()
+        return pygame.image.load(MENU_DIR / "holding_gift1.png").convert_alpha()
 
     @staticmethod
     def get_main_font():

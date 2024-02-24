@@ -1,4 +1,6 @@
 import pygame
+import builtins
+
 
 from src.components.game_status import GameStatus
 from src.config import Config
@@ -22,8 +24,10 @@ def main():
             main_menu_phase()
         elif GlobalState.GAME_STATE == GameStatus.GAMEPLAY:
             gameplay_phase()
-        elif GlobalState.GAME_STATE == GameStatus.CHANGETHEME:
-            changetheme_phase()
+        # efif GlobalState.GAME_STATE == GameStatus.PAUSE:
+        #     gameplay_pause()
+        # elif GlobalState.GAME_STATE == GameStatus.CHANGETHEME:
+        #     changetheme_phase()
         elif GlobalState.GAME_STATE == GameStatus.GAME_END:
             exit_game_phase()
 

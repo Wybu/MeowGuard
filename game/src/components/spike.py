@@ -1,4 +1,5 @@
 import random
+
 import pygame
 
 from src.components.hand_side import HandSide
@@ -15,7 +16,7 @@ class Hand(pygame.sprite.Sprite):
         self.new_spd = random.uniform(2.5, 3)
         self.new_y = 0
         self.offset_x = 0
-        h_far = random.uniform(18.0, 22.0)
+        h_far = random.uniform(20.0, 23.0)
         self.new_x = sine(100.0, 1280, h_far, self.offset_x)
         self.side = hand_side
         self.can_score = True
@@ -23,6 +24,8 @@ class Hand(pygame.sprite.Sprite):
         self._load_hand()
 
     def reset(self):
+        self.new_spd = random.uniform(1, 10)
+        self.can_score = True
 
         if self.side == HandSide.RIGHT:
             self.offset_x = random.randint(260, 380)
@@ -71,7 +74,7 @@ class Hand(pygame.sprite.Sprite):
 
         if self.rect.top > Config.HEIGHT:
             self.rect.bottom = 0
-            # kung fu sound
+            # Play Kung Fu Sound
             self.new_spd = random.uniform(0.5, 8)
 
             if self.side == HandSide.RIGHT:
@@ -88,7 +91,7 @@ class Hand(pygame.sprite.Sprite):
 
             self.can_score = True
 
-    #  def move_rules(self):
+  #  def move_rules(self):
 
     def draw(self, screen):
         dotted_line = VisualizationService.get_dotted_line()

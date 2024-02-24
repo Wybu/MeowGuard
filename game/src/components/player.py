@@ -39,6 +39,12 @@ class Player(pygame.sprite.Sprite):
 
         self.player_position = self.pos.copy()
 
+
+        # mouse_x, mouse_y = pygame.mouse.get_pos()
+        # self.pos = vec(mouse_x, mouse_y)
+
+        self.player_position = self.pos.copy()
+
         if self.pos.x > Config.WIDTH:
             self.pos.x = Config.WIDTH
         if self.pos.x < 0:
@@ -51,7 +57,7 @@ class Player(pygame.sprite.Sprite):
         self.rect.center = self.pos
 
     def draw(self, screen):
-        screen.blit(VisualizationService.get_santa_hand(), (self.rect.x - 25, self.rect.y - 25))
+        screen.blit(VisualizationService.get_santa_hand(), (self.rect.x + 10, self.rect.y - 0))
         screen.blit(self.image, self.rect)
 
     def reset(self):

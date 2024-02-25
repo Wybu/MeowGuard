@@ -40,8 +40,8 @@ class Player(pygame.sprite.Sprite):
         self.player_position = self.pos.copy()
 
 
-        # mouse_x, mouse_y = pygame.mouse.get_pos()
-        # self.pos = vec(mouse_x, mouse_y)
+        mouse_x, mouse_y = pygame.mouse.get_pos()
+        self.pos = vec(mouse_x, mouse_y)
 
         self.player_position = self.pos.copy()
 

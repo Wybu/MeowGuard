@@ -43,7 +43,7 @@ def main_menu_phase():
             GlobalState.GAME_STATE = GameStatus.GAME_END
             return
 
-        if event.type == pygame.KEYDOWN:
+        if event.type == pygame.KEYDOWN or event.type == pygame.MOUSEBUTTONDOWN:
             GlobalState.GAME_STATE = GameStatus.GAMEPLAY
 
     GlobalState.SCROLL = update_background_using_scroll(GlobalState.SCROLL)

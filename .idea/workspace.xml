@@ -6,7 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="1a161565-3a7a-460d-b7a0-2f739d1b3403" name="Changes" comment="meow">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/best_score.json" beforeDir="false" afterPath="$PROJECT_DIR$/game/best_score.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/game/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/src/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/game/src/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/src/game_phases.py" beforeDir="false" afterPath="$PROJECT_DIR$/game/src/game_phases.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/src/services/visualization_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/game/src/services/visualization_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/src/utils/tools.py" beforeDir="false" afterPath="$PROJECT_DIR$/game/src/utils/tools.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +27,20 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Wybu"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="fb6f9eb8-aa77-42f6-9125-bae35626cd1c" />
+        <option name="url" value="https://github.com/Wybu/DungDeQuaRoi" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -113,7 +132,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708850840414</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="meow">
+      <option name="closed" value="true" />
+      <created>1708873763535</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1708873763535</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

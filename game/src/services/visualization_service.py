@@ -87,7 +87,7 @@ class VisualizationService:
     def draw_author_credits(screen):
         credit_font = VisualizationService.get_credit_font_font()
         author_credits = credit_font.render("Nhóm 12 LT Python", True, (0, 0, 0))
-        credits_rect = author_credits.get_rect(center=(Config.WIDTH // 2, 620))
+        credits_rect = author_credits.get_rect(center=(Config.WIDTH // 2, 700))
         screen.blit(author_credits, credits_rect)
 
     def draw_best_score(screen, max_score, font_size=20):  # Set a reasonable default font size

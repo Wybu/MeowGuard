@@ -3,7 +3,7 @@ class Config:
 
     # Screen Information
     WIDTH = 360
-    HEIGHT = 640
+    HEIGHT = 720
 
     # Movement
     ACC = 1.6

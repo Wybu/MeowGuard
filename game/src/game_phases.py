@@ -3,6 +3,7 @@ import time
 
 import pygame
 
+
 from src.components.game_status import GameStatus
 from src.components.hand import Hand
 from src.components.hand_side import HandSide
@@ -12,7 +13,7 @@ from src.global_state import GlobalState
 from src.services.music_service import MusicService
 from src.services.visualization_service import VisualizationService
 from src.utils.tools import update_background_using_scroll, update_press_key, is_close_app_event
-
+from src.config import Config
 GlobalState.load_main_screen()
 VisualizationService.load_main_game_displays()
 
@@ -54,11 +55,12 @@ def main_menu_phase():
 #Game play
 def gameplay_phase():
     events = pygame.event.get()
-
+    mouse_pos = (0, 0)
     for event in events:
         if is_close_app_event(event):
             game_over()
             return
+
 
     P1.update()
     H1.move(scoreboard, P1.player_position)

@@ -1,4 +1,6 @@
 import pygame
+import builtins
+
 
 from src.components.game_status import GameStatus
 from src.config import Config

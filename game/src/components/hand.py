@@ -12,10 +12,10 @@ from src.utils.tools import sine
 class Hand(pygame.sprite.Sprite):
     def __init__(self, hand_side: HandSide):
         super().__init__()
-        self.new_spd = random.uniform(2.5, 3)
+        self.new_spd = random.uniform(2.3, 2.8)
         self.new_y = 0
         self.offset_x = 0
-        h_far = random.uniform(18.0, 22.0)
+        h_far = random.uniform(18.0, 21.0)
         self.new_x = sine(100.0, 1280, h_far, self.offset_x)
         self.side = hand_side
         self.can_score = True
@@ -23,7 +23,6 @@ class Hand(pygame.sprite.Sprite):
         self._load_hand()
 
     def reset(self):
-
         if self.side == HandSide.RIGHT:
             self.offset_x = random.randint(260, 380)
             self.new_y = -40
@@ -60,10 +59,9 @@ class Hand(pygame.sprite.Sprite):
         self.new_y += self.new_spd
         self.rect.center = (self.new_x, self.new_y)
 
-        if self.rect.top > player_position.y - 35 and self.can_score:
+        if self.rect.top > player_position.y - 0 and self.can_score:
             scoreboard.increase_current_score()
             self.can_score = False
-
             MusicService.play_score_sound()
 
             if scoreboard.get_current_score() % 5 == 0:
@@ -72,7 +70,7 @@ class Hand(pygame.sprite.Sprite):
         if self.rect.top > Config.HEIGHT:
             self.rect.bottom = 0
             # kung fu sound
-            self.new_spd = random.uniform(0.5, 8)
+            self.new_spd = random.uniform(1, 7)
 
             if self.side == HandSide.RIGHT:
                 self.offset_x = random.randint(260, 380)
@@ -83,10 +81,10 @@ class Hand(pygame.sprite.Sprite):
                 self.new_y = -320
 
             if self.new_spd >= 6:
-                self.new_spd = 10
+                self.new_spd = 9
                 MusicService.play_chop_sound()
 
-            self.can_score = True
+            self.can_score = True  # Set self.can_score back to True after resetting the hand's position
 
     #  def move_rules(self):
 

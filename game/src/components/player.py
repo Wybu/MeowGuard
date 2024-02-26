@@ -1,4 +1,5 @@
 import pygame
+import pygame.transform
 from pygame.locals import *
 
 from src.config import Config
@@ -11,6 +12,7 @@ class Player(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
         self.image = VisualizationService.get_player_image()
+        self.image_st = VisualizationService.get_santa_hand()
         self.rect = self.image.get_rect()
         self.mask = pygame.mask.from_surface(self.image)
         self.pos = vec((180, 550))
@@ -40,8 +42,8 @@ class Player(pygame.sprite.Sprite):
         self.player_position = self.pos.copy()
 
 
-        mouse_x, mouse_y = pygame.mouse.get_pos()
-        self.pos = vec(mouse_x, mouse_y)
+        #mouse_x, mouse_y = pygame.mouse.get_pos()
+        #self.pos = vec(mouse_x, mouse_y)
 
         self.player_position = self.pos.copy()
 
@@ -57,8 +59,13 @@ class Player(pygame.sprite.Sprite):
         self.rect.center = self.pos
 
     def draw(self, screen):
+        original_width, original_height = self.image.get_size()
+        original_width, original_height = self.image.get_size()
+        scaled_width = int(original_width * 1)  # Giảm 20% chiều rộng
+        scaled_height = int(original_height * 1)  # Giảm 20% chiều cao
+        scaled_image = pygame.transform.scale(self.image, (scaled_width, scaled_height))
         screen.blit(VisualizationService.get_santa_hand(), (self.rect.x + 10, self.rect.y - 0))
-        screen.blit(self.image, self.rect)
+        screen.blit(scaled_image, self.rect)
 
     def reset(self):
         self.pos = vec((180, 550))

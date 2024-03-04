@@ -90,7 +90,6 @@ class Hand(pygame.sprite.Sprite):
                 MusicService.play_chop_sound()
 
             self.can_score = True
-
   #  def move_rules(self):
 
     def draw(self, screen):

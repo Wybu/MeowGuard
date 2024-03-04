@@ -6,3 +6,4 @@ class GameStatus(Enum):
     GAMEPLAY = 1
     GAME_END = 2
     PAUSE_SCREEN =3
+    PAUSE_MENU=4

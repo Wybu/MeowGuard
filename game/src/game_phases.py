@@ -42,17 +42,17 @@ all_sprites.add(H2)
 #                 return
 #
 #Main menu
-def pause_menu_phase():
-    events = pygame.event.get()
-    for event in events:
-        if is_close_app_event(event):
-            GlobalState.GAME_STATE = GameStatus.GAME_END
-            return
-        if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_BACKSPACE:
-                GlobalState.GAME_STATE = GameStatus.GAMEPLAY
-
-    VisualizationService.draw_pause_menu(GlobalState.SCREEN)
+# def pause_menu_phase():
+#     events = pygame.event.get()
+#     for event in events:
+#         if is_close_app_event(event):
+#             GlobalState.GAME_STATE = GameStatus.GAME_END
+#             return
+#         if event.type == pygame.KEYDOWN:
+#             if event.key == pygame.K_BACKSPACE:
+#                 GlobalState.GAME_STATE = GameStatus.GAMEPLAY
+#
+#     VisualizationService.draw_pause_menu(GlobalState.SCREEN)
 
 def main_menu_phase():
     scoreboard.reset_current_score()

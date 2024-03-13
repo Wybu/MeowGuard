@@ -12,7 +12,7 @@ from src.utils.tools import sine
 class Hand(pygame.sprite.Sprite):
     def __init__(self, hand_side: HandSide):
         super().__init__()
-        self.new_spd = random.uniform(2.3, 2.8)
+        self.new_spd = random.uniform(2.3, 2.6)
         self.new_y = 0
         self.offset_x = 0
         h_far = random.uniform(18.0, 21.0)
@@ -69,6 +69,7 @@ class Hand(pygame.sprite.Sprite):
 
         if self.rect.top > Config.HEIGHT:
             self.rect.bottom = 0
+
             # kung fu sound
             self.new_spd = random.uniform(1, 7)
 
@@ -81,12 +82,14 @@ class Hand(pygame.sprite.Sprite):
                 self.new_y = -320
 
             if self.new_spd >= 6:
-                self.new_spd = 9
+                self.new_spd = 8
                 MusicService.play_chop_sound()
 
             self.can_score = True  # Set self.can_score back to True after resetting the hand's position
 
     #  def move_rules(self):
+    #      self.new_x = sine(100.0, 620, 25.0, self.offset_x)
+
 
     def draw(self, screen):
         dotted_line = VisualizationService.get_dotted_line()

@@ -19,7 +19,8 @@ class Player(pygame.sprite.Sprite):
         self.vel = vec(0, 0)
         self.acc = vec(0, 0)
         self.player_position = vec(0, 0)
-
+    def back_hand(self):
+        self.image = VisualizationService.get_back_hand()
     def update(self):
         self.acc = vec(0, 0)
 
@@ -61,8 +62,8 @@ class Player(pygame.sprite.Sprite):
     def draw(self, screen):
         original_width, original_height = self.image.get_size()
         original_width, original_height = self.image.get_size()
-        scaled_width = int(original_width * 1)  # Giảm 20% chiều rộng
-        scaled_height = int(original_height * 1)  # Giảm 20% chiều cao
+        scaled_width = int(original_width * 1) #cai nay de chia ti le khung hinh
+        scaled_height = int(original_height * 1)
         scaled_image = pygame.transform.scale(self.image, (scaled_width, scaled_height))
         screen.blit(VisualizationService.get_santa_hand(), (self.rect.x + 10, self.rect.y - 0))
         screen.blit(scaled_image, self.rect)

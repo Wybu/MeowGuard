@@ -10,8 +10,6 @@ class MusicService:
     def get_background_musics():
         return [
             AUDIO_DIR / "sleigh_ride.ogg",
-            # AUDIO_DIR / "merry_christmas.ogg",
-            # AUDIO_DIR / "here_comes_santa.ogg"
             AUDIO_DIR / "CatTheme.wav"
         ]
 

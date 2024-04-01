@@ -21,6 +21,9 @@ class Player(pygame.sprite.Sprite):
         self.player_position = vec(0, 0)
     def back_hand(self):
         self.image = VisualizationService.get_back_hand()
+    def jump(self):
+        
+        self.vel.y = -Config.JUMP
     def update(self):
         self.acc = vec(0, 0)
 

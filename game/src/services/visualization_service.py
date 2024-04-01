@@ -61,7 +61,9 @@ class VisualizationService:
     @staticmethod
     def get_holding_gift_image():
         return pygame.image.load(MENU_DIR / "holding_gift1.png").convert_alpha()
-
+    @staticmethod
+    def get_santa_hand3():
+        return pygame.image.load(ASSETS_DIR / "santa_hand3.png").convert_alpha()
     @staticmethod
     def get_main_font():
         return pygame.font.Font(ASSETS_DIR / "BaiJamjuree-Bold.ttf", 40)
@@ -114,7 +116,10 @@ class VisualizationService:
         screen.blit(title, (-40, y))
         holding_gift = VisualizationService.get_holding_gift_image()
         screen.blit(holding_gift, (-5, 350))
-
+    @staticmethod
+    def shift_motion(screen, player_position, scroll):
+        player = VisualizationService.get_player_image()
+        screen.blit(player, (player_position, scroll))
     @staticmethod
     def draw_press_key(screen, press_y):
         press_key = VisualizationService.get_press_key_image()

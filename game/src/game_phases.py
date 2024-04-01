@@ -33,27 +33,6 @@ all_sprites.add(P1)
 all_sprites.add(H1)
 all_sprites.add(H2)
 
-# def pause_menu_phase():
-#     events = pygame.event.get()
-#     for event in events:
-#         if event.type   ==  pygame.KEYDOWN:
-#             if event.key == pygame.K_SPACE:
-#                 GlobalState.GAME_STATE = GameStatus.PAUSE_MENU
-#                 return
-#
-#Main menu
-# def pause_menu_phase():
-#     events = pygame.event.get()
-#     for event in events:
-#         if is_close_app_event(event):
-#             GlobalState.GAME_STATE = GameStatus.GAME_END
-#             return
-#         if event.type == pygame.KEYDOWN:
-#             if event.key == pygame.K_BACKSPACE:
-#                 GlobalState.GAME_STATE = GameStatus.GAMEPLAY
-#
-#     VisualizationService.draw_pause_menu(GlobalState.SCREEN)
-
 def main_menu_phase():
     scoreboard.reset_current_score()
 
@@ -115,3 +94,25 @@ def game_over():
     H2.reset()
     GlobalState.GAME_STATE = GameStatus.MAIN_MENU
     time.sleep(0.5)
+
+
+# def pause_menu_phase():
+#     events = pygame.event.get()
+#     for event in events:
+#         if event.type   ==  pygame.KEYDOWN:
+#             if event.key == pygame.K_SPACE:
+#                 GlobalState.GAME_STATE = GameStatus.PAUSE_MENU
+#                 return
+#
+#Main menu
+# def pause_menu_phase():
+#     events = pygame.event.get()
+#     for event in events:
+#         if is_close_app_event(event):
+#             GlobalState.GAME_STATE = GameStatus.GAME_END
+#             return
+#         if event.type == pygame.KEYDOWN:
+#             if event.key == pygame.K_BACKSPACE:
+#                 GlobalState.GAME_STATE = GameStatus.GAMEPLAY
+#
+#     VisualizationService.draw_pause_menu(GlobalState.SCREEN)

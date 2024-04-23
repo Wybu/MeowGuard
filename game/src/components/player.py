@@ -75,6 +75,15 @@ class Player(pygame.sprite.Sprite):
         self.pos = vec((180, 550))
         self.vel = vec(0, 0)
         self.acc = vec(0, 0)
+
+    def hole(self):
+        self.image = VisualizationService.get_hole_image()  # Assuming you have a method to get the hole image
+        self.rect = self.image.get_rect()
+        self.mask = pygame.mask.from_surface(self.image)
+        mouse_x, mouse_y = pygame.mouse.get_pos()
+        self.pos = vec(mouse_x, mouse_y)
+        self.rect.center = self.pos
+
 """
     def update(self):
         self.acc = vec(0, 0)

@@ -7,7 +7,6 @@ from src.global_state import GlobalState
 from src.services.music_service import MusicService
 
 pygame.init()
-
 FramePerSec = pygame.time.Clock()
 
 def update_game_display():

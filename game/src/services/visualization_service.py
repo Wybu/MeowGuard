@@ -25,7 +25,9 @@ class VisualizationService:
     @staticmethod
     def get_dotted_line():
         return pygame.image.load(ASSETS_DIR / "dotted_line.png").convert_alpha()
-
+    @staticmethod
+    def get_hole():
+        return pygame.image.load(ASSETS_DIR / "hole.png").convert_alpha()
     @staticmethod
     def get_background_image():
         return pygame.image.load(ASSETS_DIR / "bg.png").convert_alpha()
@@ -129,7 +131,7 @@ class VisualizationService:
     def draw_cat_hand(screen, press_y):
         # Lấy hình ảnh của leftbg và rightbg
         left_bg = VisualizationService.get_leftbg()
-        right_bg = VisualizationService.get_rightbg()
+        right_bg = VisualizationService.get_rightbg()       
 
         # Tính toán tọa độ x cho leftbg và rightbg
         left_bg_x = -300  # Vẽ leftbg ở góc trái của màn hình
@@ -138,7 +140,10 @@ class VisualizationService:
         # Vẽ leftbg và rightbg
         screen.blit(left_bg, (left_bg_x, press_y))
         screen.blit(right_bg, (right_bg_x, press_y))
-
+    @staticmethod
+    def draw_hole(screen, hole_x, hole_y):
+        hole = VisualizationService.get_hole()
+        screen.blit(hole, (hole_x, hole_y))
     @staticmethod
     def draw_cat_hand2(screen, press_y):
         # Lấy hình ảnh của leftbg và rightbg

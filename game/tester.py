@@ -1,18 +1,16 @@
 import sys
 import pygame
 
-# ... (import các modules và lớp cần thiết)
 
 def main():
     pygame.init()
 
-    # Kích thước cửa sổ và một số cài đặt khác
     screen_width = 800
     screen_height = 600
     screen = pygame.display.set_mode((screen_width, screen_height))
     pygame.display.set_caption("Game Title")
 
-    # Tạo một hộp (button) cho việc chọn theme
+
     theme_button_rect = pygame.Rect(50, 50, 150, 50)
     theme_button_color = (100, 100, 100)
     theme_button_text = "Change Theme"

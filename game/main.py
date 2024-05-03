@@ -24,9 +24,18 @@ def main():
             for event in pygame.event.get():
                 if event.type == pygame.MOUSEMOTION:
                     mouse_pos = event.pos
+                elif event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_BACKSPACE:
+                        GlobalState.GAME_STATE = GameStatus.PAUSE
             mouse_pos = (min(max(mouse_pos[0], 0), Config.WIDTH), min(max(mouse_pos[1], 0), Config.HEIGHT))
         elif GlobalState.GAME_STATE == GameStatus.GAME_END:
             exit_game_phase()
+        elif GlobalState.GAME_STATE == GameStatus.PAUSE:  # Add this condition
+            pause_menu_phase()  # You need to implement this function
+            for event in pygame.event.get():
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_BACKSPACE:
+                        GlobalState.GAME_STATE = GameStatus.GAMEPLAY
         MusicService.start_background_music()
         update_game_display()
 

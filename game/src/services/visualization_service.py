@@ -75,7 +75,7 @@ class VisualizationService:
         return pygame.font.Font(ASSETS_DIR / "BaiJamjuree-Bold.ttf", 12)
     @staticmethod
     def draw_pause_menu():
-        return pygame.image.load(MENU_DIR / "title.png".convert_alpha())
+        return pygame.image.load(MENU_DIR / "pause_menu.png".convert_alpha())
 
   #  @staticmethod
   #  def get_score_font():
@@ -144,6 +144,10 @@ class VisualizationService:
     def draw_hole(screen, hole_x, hole_y):
         hole = VisualizationService.get_hole()
         screen.blit(hole, (hole_x, hole_y))
+    @staticmethod
+    def pause_cdown(screen):
+        pause_menu = VisualizationService.draw_pause_menu()
+        screen.blit(pause_menu, (0, 0))
     @staticmethod
     def draw_cat_hand2(screen, press_y):
         # Lấy hình ảnh của leftbg và rightbg

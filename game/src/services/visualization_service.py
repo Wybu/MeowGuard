@@ -75,7 +75,7 @@ class VisualizationService:
         return pygame.font.Font(ASSETS_DIR / "BaiJamjuree-Bold.ttf", 12)
     @staticmethod
     def draw_pause_menu():
-        return pygame.image.load(MENU_DIR / "pause_menu.png".convert_alpha())
+        return pygame.image.load(MENU_DIR / "pause_menu.png").convert_alpha()
 
   #  @staticmethod
   #  def get_score_font():

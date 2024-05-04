@@ -19,7 +19,6 @@ class Hand(pygame.sprite.Sprite):
         self.new_x = sine(100.0, 1280, h_far, self.offset_x)
         self.side = hand_side
         self.can_score = True
-
         self._load_hand()
     def reset(self):
         if self.side == HandSide.RIGHT:

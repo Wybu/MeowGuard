@@ -29,7 +29,6 @@ all_sprites.add(H1)
 all_sprites.add(H2)
 def main_menu_phase():
     scoreboard.reset_current_score()
-
     events = pygame.event.get()
 
     for event in events:
@@ -53,10 +52,7 @@ def gameplay_phase():
             game_over()
             return
 
-
     P1.update()
-    H1.move(scoreboard, P1.player_position)
-    H2.move(scoreboard, P1.player_position)
     H1.move(scoreboard, P1.player_position)
     H2.move(scoreboard, P1.player_position)
 
@@ -71,7 +67,7 @@ def gameplay_phase():
     if pygame.sprite.spritecollide(P1, hands, False, pygame.sprite.collide_mask):
         scoreboard.update_max_score()
         MusicService.play_slap_sound()
-        time.sleep(0.5)
+        time.sleep(0.3)
         game_over()
 # def gameplay_pause():
 def exit_game_phase():

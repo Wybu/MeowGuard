@@ -4,7 +4,6 @@ import pygame
 
 from paths import AUDIO_DIR
 
-
 class MusicService:
     @staticmethod
     def get_background_musics():

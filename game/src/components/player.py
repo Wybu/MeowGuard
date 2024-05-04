@@ -19,11 +19,18 @@ class Player(pygame.sprite.Sprite):
         self.vel = vec(0, 0)
         self.acc = vec(0, 0)
         self.player_position = vec(0, 0)
+        self.control_mode = 'keyboard'
     def back_hand(self):
         self.image = VisualizationService.get_back_hand()
     def jump(self):
         
         self.vel.y = -Config.JUMP
+
+    def change_gameplay(self):
+        if self.control_mode == 'keyboard':
+            self.control_mode = 'mouse'
+        else:
+            self.control_mode = 'keyboard'
     def update(self):
         self.acc = vec(0, 0)
 
@@ -46,8 +53,8 @@ class Player(pygame.sprite.Sprite):
         self.player_position = self.pos.copy()
 
 
-        #mouse_x, mouse_y = pygame.mouse.get_pos()
-        #self.pos = vec(mouse_x, mouse_y)
+        mouse_x, mouse_y = pygame.mouse.get_pos()
+        self.pos = vec(mouse_x, mouse_y)
 
         self.player_position = self.pos.copy()
 

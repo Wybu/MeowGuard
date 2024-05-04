@@ -1,8 +1,6 @@
 import sys
 import time
-
 import pygame
-
 
 from src.components.game_status import GameStatus
 from src.components.hand import Hand
@@ -18,12 +16,9 @@ GlobalState.load_main_screen()
 VisualizationService.load_main_game_displays()
 
 scoreboard = Scoreboard()
-
-# Sprite Setup
 P1 = Player()
 H1 = Hand(HandSide.RIGHT)
 H2 = Hand(HandSide.LEFT)
-
 # Sprite Groups
 hands = pygame.sprite.Group()
 hands.add(H1)
@@ -32,7 +27,6 @@ all_sprites = pygame.sprite.Group()
 all_sprites.add(P1)
 all_sprites.add(H1)
 all_sprites.add(H2)
-
 def main_menu_phase():
     scoreboard.reset_current_score()
 
@@ -50,7 +44,6 @@ def main_menu_phase():
     VisualizationService.draw_background_with_scroll(GlobalState.SCREEN, GlobalState.SCROLL)
     GlobalState.PRESS_Y = update_press_key(GlobalState.PRESS_Y)
     VisualizationService.draw_main_menu(GlobalState.SCREEN, scoreboard.get_max_score(), GlobalState.PRESS_Y)
-
 #Game play
 def gameplay_phase():
     events = pygame.event.get()
@@ -80,21 +73,30 @@ def gameplay_phase():
         MusicService.play_slap_sound()
         time.sleep(0.5)
         game_over()
-
 # def gameplay_pause():
-
 def exit_game_phase():
     pygame.quit()
     sys.exit()
 def pause_menu_phase():
     events = pygame.event.get()
     for event in events:
-        if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_BACKSPACE:
-                GlobalState.GAME_STATE = GameStatus.PAUSE
-                VisualizationService.draw_pause_menu()
-
-
+        if is_close_app_event(event):
+            game_over()
+            return
+        if event.type == pygame.K_BACKSPACE:
+            GlobalState.GAME_STATE = GameStatus.PAUSE
+            VisualizationService.draw_pause_menu()
+            for event in events:
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_BACKSPACE:
+                        GlobalState.GAME_STATE = GameStatus.PAUSE
+                        movie=VisualizationService.pause_cdown()
+                        movie_screen = pygame.Surface(movie.get_size()).convert()
+                        movie.set_display(movie_screen)
+                        movie_screen.blit(movie_screen, (0, 0))
+                        movie.play()
+                        GlobalState.GAME_STATE = GameStatus.GAMEPLAY
+                        return
 def game_over():
     P1.reset()
     H1.reset()

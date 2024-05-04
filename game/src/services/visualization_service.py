@@ -3,8 +3,6 @@ import pygame
 from paths import ASSETS_DIR, MENU_DIR
 from src.config import Config
 from src.utils.tools import sine
-
-
 class VisualizationService:
     @staticmethod
     def get_right_hand_image():
@@ -77,10 +75,6 @@ class VisualizationService:
     def draw_pause_menu():
         return pygame.image.load(MENU_DIR / "pause_menu.png").convert_alpha()
 
-  #  @staticmethod
-  #  def get_score_font():
-#     return pygame.font.Font(ASSETS_DIR / "BaiJamjuree-Bold.ttf", 26)
-
     @staticmethod
     def load_main_game_displays():
         pygame.display.set_caption("Meow Guard")
@@ -109,8 +103,6 @@ class VisualizationService:
     def get_score_font(font_size):  # Remove the default value for font_size
         # Your code to create and return the font object
         return pygame.font.Font(ASSETS_DIR / "BaiJamjuree-Bold.ttf",  font_size)  # Adjust None to your preferred font or font file
-
-    # Adjust None to your preferred font or font file
     @staticmethod
     def draw_title(screen):
         y = sine(200.0, 1280, 10.0, 100)
@@ -146,8 +138,11 @@ class VisualizationService:
         screen.blit(hole, (hole_x, hole_y))
     @staticmethod
     def pause_cdown(screen):
-        pause_menu = VisualizationService.draw_pause_menu()
-        screen.blit(pause_menu, (0, 0))
+        movie = pygame.movie.Movie(MENU_DIR / "pause_cd.mp4")
+        movie_screen = pygame.Surface(movie.get_size()).convert()
+        movie.set_display(movie_screen)
+        movie_screen.blit(movie_screen, (0, 0))
+        movie.play()
     @staticmethod
     def draw_cat_hand2(screen, press_y):
         # Lấy hình ảnh của leftbg và rightbg

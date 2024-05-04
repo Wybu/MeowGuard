@@ -21,7 +21,6 @@ class Hand(pygame.sprite.Sprite):
         self.can_score = True
 
         self._load_hand()
-
     def reset(self):
         if self.side == HandSide.RIGHT:
             self.offset_x = random.randint(260, 380)
@@ -32,28 +31,24 @@ class Hand(pygame.sprite.Sprite):
             self.offset_x = random.randint(-50, 120)
             self.new_y = -320
             self.new_x = 0
-
     def _load_hand(self):
         if self.side == HandSide.RIGHT:
             self._load_right_hand()
 
         if self.side == HandSide.LEFT:
             self._load_left_hand()
-
     def _load_left_hand(self):
         self.image = VisualizationService.get_left_hand_image()
         self.rect = self.image.get_rect()
         self.mask = pygame.mask.from_surface(self.image)
         self.offset_x = random.randint(-50, 120)
         self.new_y = -320
-
     def _load_right_hand(self):
         self.image = VisualizationService.get_right_hand_image()
         self.rect = self.image.get_rect()
         self.mask = pygame.mask.from_surface(self.image)
         self.offset_x = random.randint(260, 380)
         self.new_y = -40
-
     def move(self, scoreboard: Scoreboard, player_position):
         self.new_x = sine(100.0, 620, 25.0, self.offset_x)
         self.new_y += self.new_spd
@@ -86,12 +81,11 @@ class Hand(pygame.sprite.Sprite):
                 MusicService.play_chop_sound()
 
             self.can_score = True  # Set self.can_score back to True after resetting the hand's position
-
-    #  def move_rules(self):
-    #      self.new_x = sine(100.0, 620, 25.0, self.offset_x)
-
-
     def draw(self, screen):
         dotted_line = VisualizationService.get_dotted_line()
         screen.blit(dotted_line, (0, self.rect.y + 53))
         screen.blit(self.image, self.rect)
+        #  def move_rules(self):
+        #      self.new_x = sine(100.0, 620, 25.0, self.offset_x)
+
+

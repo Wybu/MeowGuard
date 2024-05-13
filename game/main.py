@@ -30,8 +30,11 @@ def main():
             mouse_pos = (min(max(mouse_pos[0], 0), Config.WIDTH), min(max(mouse_pos[1], 0), Config.HEIGHT))
         elif GlobalState.GAME_STATE == GameStatus.GAME_END:
             exit_game_phase()
+
         MusicService.start_background_music()
         update_game_display()
+        print(GlobalState.GAME_STATE)
+
 
 if __name__ == "__main__":
     main()

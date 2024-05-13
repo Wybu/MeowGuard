@@ -74,25 +74,19 @@ def exit_game_phase():
     pygame.quit()
     sys.exit()
 def pause_menu_phase():
-    events = pygame.event.get()
-    for event in events:
-        if is_close_app_event(event):
-            game_over()
-            return
-        if event.type == pygame.K_BACKSPACE:
-            GlobalState.GAME_STATE = GameStatus.PAUSE
-            VisualizationService.draw_pause_menu()
-            for event in events:
-                if event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_BACKSPACE:
-                        GlobalState.GAME_STATE = GameStatus.PAUSE
-                        movie=VisualizationService.pause_cdown()
-                        movie_screen = pygame.Surface(movie.get_size()).convert()
-                        movie.set_display(movie_screen)
-                        movie_screen.blit(movie_screen, (0, 0))
-                        movie.play()
-                        GlobalState.GAME_STATE = GameStatus.GAMEPLAY
-                        return
+    while True:
+        for event in pygame.event.get():
+            if is_close_app_event(event):
+                game_over()
+                return
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_BACKSPACE:
+                    GlobalState.GAME_STATE = GameStatus.PAUSE
+                    VisualizationService.draw_pause_menu()
+                elif event.key == pygame.K_BACKSPACE and GlobalState.GAME_STATE == GameStatus.PAUSE:
+                    GlobalState.GAME_STATE = GameStatus.GAMEPLAY
+                    return
+
 def game_over():
     P1.reset()
     H1.reset()
